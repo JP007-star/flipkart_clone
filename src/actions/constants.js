@@ -7,3 +7,6 @@ export const categoryConstants={
     ADD_CATEGORIES_FAILURE: 'ADD CATEGORIES FAILURE',
 }
 
+export const productContants = {   
+    GET_PRODUCTS_BY_SLUG: 'GET PRODUCTS BY SLUG',
+}
