@@ -6,7 +6,7 @@ import './style.css'
 export default function MenuHeader() {
 
    //state constants declaration
-   const category = useSelector(state => state.category)
+  const category = useSelector(state => state.category)
   const dispatch=useDispatch()
 
   useEffect(() => {
