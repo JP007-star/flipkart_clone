@@ -22,7 +22,7 @@
     cursor: pointer;
     padding: 0 20px;
     font-size: 14px;
-   
+    
 }
 
 .menu-header >  ul > li > span:hover{
@@ -36,6 +36,7 @@
     right: 0;
     display: none;
     border: 1px solid #cecece;
+    z-index: 1;
 }
 .menu-header >  ul > li:hover ul{
     display: block;
