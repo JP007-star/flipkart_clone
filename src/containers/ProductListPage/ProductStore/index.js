@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { Row } from 'react-bootstrap'
+
 import { useDispatch, useSelector } from 'react-redux'
-import { useParams } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import { getProductsBySlug } from '../../../actions';
 import { generatePublicURL } from '../../../urlConfig';
 
@@ -31,18 +31,18 @@ export const ProductStore = (props) => {
             {
                 Object.keys(product.productsByPrice).map((key, index) => {
                     return (
-                        <div className='card row'>
+                        <div className='card'>
 
                             <div className='card-header'>
                                 <div className='card-title'>{slug} mobile {priceRange[key]}</div>
-                                <button>veiw all</button>
+                                <button >veiw all</button>
                             </div>
 
                             <div className='card-body'>
                                 {
                                     product.productsByPrice[key].map(product =>
 
-                                        <div className='product-container'>
+                                        <NavLink to={`/${product.slug}/${product._id}/p`} className='product-container'>
 
                                             <div className='product-image'>
                                                 <img src={generatePublicURL(product.productPicture[0].image)} alt='#' />
@@ -57,7 +57,7 @@ export const ProductStore = (props) => {
                                                 <div className='product-price'>{product.price}</div>
                                             </div>
 
-                                        </div>
+                                        </NavLink>
                                     )
                                 }
 

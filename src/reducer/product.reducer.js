@@ -12,7 +12,9 @@ const initState = {
     },
     pageRequest:false,
     page: {},
-    error:null
+    error:null,
+    productDetails:{},
+    loading:false
 }
 
 export default (state = initState, action) => {
@@ -48,6 +50,26 @@ export default (state = initState, action) => {
                 error:action.payload.error,
                 pageRequest: false
             }
+            break;
+        case productContants.GET_PRODUCTS_DETAILS_BY_ID_REQUEST:
+            state = {
+              ...state,
+              loading: true,
+            };
+            break;
+          case productContants.GET_PRODUCTS_DETAILS_BY_ID_SUCCESS:
+            state = {
+              ...state,
+              loading: false,
+              productDetails: action.payload.productDetails,
+            };
+            break;
+          case productContants.GET_PRODUCTS_DETAILS_BY_ID_FAILURE:
+            state = {
+              ...state,
+              loading: false,
+              error: action.payload.error,
+            };
             break;
         }
       return state;

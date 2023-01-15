@@ -6,6 +6,7 @@ import getParams from '../../../utlis/getParams';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
 import { generatePublicURL } from '../../../urlConfig';
+import { Card } from 'react-bootstrap';
 /**
 * @author
 * @function ProductPage
@@ -27,22 +28,35 @@ export const ProductPage = (props) => {
     }, [])
     return (
         <>
-            <h1>{page.title}</h1>
-            
-            <Carousel renderThumbs={()=>{}}>
+            <div style={{ margin: '0 10px' }}>
+                <h1>{page.title}</h1>
+                <Carousel renderThumbs={() => { }}>
+                    {
+                        page.banners && page.banners.map((banner, index) =>
+                            <div key={index}>
+                                <a 
+                                style={{display:'block'}}
+                                href={banner.navigateTo}
+                                >
+                                    <img src={generatePublicURL(banner.img)} alt="" />
+                                </a>
+
+                                {/* <p className="legend">legend1</p> */}
+                            </div>
+                        )
+                    }
+                </Carousel>
+                <div style={{display:'flex',justifyContent:'center',flexWrap:'wrap'}}>
                 {
-                    page.banners && page.banners.map((banner, index) =>
-                        <div key={index}>
-                            
-                             <img src={generatePublicURL(banner.img)} alt=""/>
-                             {/* <p className="legend">legend1</p> */}
-                        </div>
-                    )
-
-
+                    page.products && page.products.map((product,index) => 
+                        <Card key={index} style={{width:'400px',height:'100px',margin:'0 5px'}}> 
+                          <img style={{width:'100%' ,height:'300px'}} src={generatePublicURL(product.img)} alt=""/>
+                        </Card>
+                     )              
                 }
-            </Carousel>
-
+                </div>
+                
+            </div>
         </>
     )
 
