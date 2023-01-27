@@ -44,7 +44,7 @@ const MaterialInput = (props) => {
                         setFocus(true)
                     }}
                     onBlur={(e) => {
-                        if(e.target.value === ""){
+                        if (e.target.value === "") {
                             setFocus(false)
                         }
                     }} />
@@ -62,10 +62,10 @@ const MaterialButton = (props) => {
         props.onClick && props.onClick();
     }
     return (
-        <div style={{ 
-            width: '90%', 
-            ...props.style 
-            }}>
+        <div style={{
+            width: '90%',
+            ...props.style
+        }}>
             <button
                 className="materialButton"
                 style={{
@@ -83,22 +83,28 @@ const MaterialButton = (props) => {
 
 const DropdownMenu = (props) => {
     return (
-      <div className="headerDropdownContainer">
-        {props.menu}
-        <div className="dropdown">
-          <div className="upArrow"></div>
-          {props.firstMenu}
-          <ul className="headerDropdownMenu">
-            {
-              props.menus && props.menus.map((item, index) =>
-                <li key={index}><a href={item.href}>{item.label}</a></li>
-              )
-            }
-          </ul>
+        <div className="headerDropdownContainer">
+            {props.menu}
+            <div className="dropdown">
+                <div className="upArrow"></div>
+                {props.firstMenu}
+                <ul className="headerDropdownMenu">
+                    {
+                        props.menus && props.menus.map((item, index) =>
+                            <li key={index}>
+                                <a onClick={(e)=>{
+                                    e.preventDefault();
+                                    item.onClick && item.onClick()
+                                }}
+                                href={item.href}>{item.label}</a>
+                            </li>
+                        )
+                    }
+                </ul>
+            </div>
         </div>
-      </div>
     );
-  }
+}
 
 export {
     Modal,
