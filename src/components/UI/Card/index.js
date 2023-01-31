@@ -6,10 +6,19 @@ import './style.css'
 **/
 
 export const Card = (props) => {
-  return(
+  return (
     <div className='card' {...props}>
-        {props.card}
+      <div className='card-header'>
+        {
+           props.headerleft &&  <div>{props.headerleft}</div>
+        }
+        {
+           props.headerright &&  <div>{props.headerright}</div>
+        }
+        
+      </div>
+      {props.children}
     </div>
-   )
+  )
 
- }
+}

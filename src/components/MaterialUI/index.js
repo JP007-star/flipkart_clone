@@ -75,6 +75,7 @@ const MaterialButton = (props) => {
                 onClick={onClick}
             >
                 {props.title && props.title}
+                {props.icon && props.icon}
             </button>
         </div>
 

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Card } from '../../../components/UI/Card';
 
 import { useDispatch, useSelector } from 'react-redux'
 import { NavLink, useParams } from 'react-router-dom';
@@ -31,12 +32,11 @@ export const ProductStore = (props) => {
             {
                 Object.keys(product.productsByPrice).map((key, index) => {
                     return (
-                        <div className='card'>
-
-                            <div className='card-header'>
-                                <div className='card-title'>{slug} mobile {priceRange[key]}</div>
-                                <button >veiw all</button>
-                            </div>
+                        <Card
+                            headerleft={`${slug} mobile ${priceRange[key]}`}
+                            headerright={<button >veiw all</button>}
+                            style={{margin:'20px'}}
+                        >
 
                             <div className='card-body'>
                                 {
@@ -63,7 +63,7 @@ export const ProductStore = (props) => {
 
 
                             </div>
-                        </div>
+                        </Card>
                     )
                 })
             }

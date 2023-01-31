@@ -6,6 +6,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { isUserLoggedIn } from './actions';
 import { ProductDetailsPage } from './containers/ProductDetailsPage';
+import {CartPage} from './containers/CartPage';
 
 function App() {
   const dispatch=useDispatch();
@@ -20,6 +21,7 @@ function App() {
     <div className="App">
          <Routes>
            <Route path="/"  element={<Home/>}/>
+           <Route path="/cart"  element={<CartPage/>}/>
            <Route path="/:slug" element={<ProductListPage/>}/>
            <Route path="/:productSlug/:productId/p" element={<ProductDetailsPage/>}/>
          </Routes>

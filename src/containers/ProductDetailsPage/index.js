@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { getProductDetailsById } from '../../actions';
 import Layout from '../../components/Layout'
 import { MaterialButton } from '../../components/MaterialUI';
@@ -34,6 +35,8 @@ export const ProductDetailsPage = (props) => {
       console.log(product.productDetails.productPicture);
     },[])
 
+    const navigate=useNavigate()
+
     if (Object.keys(product.productDetails).length === 0) {
       return null;
     }
@@ -56,8 +59,8 @@ export const ProductDetailsPage = (props) => {
           <div className="productDescContainer">
             <div className="productDescImgContainer">
               <img
-                src={generatePublicURL(product.productDetails.productPicture[1].image)}
-                alt={`${product.productDetails.productPicture[1].image}`}
+                src={generatePublicURL(product.productDetails.productPicture[0].image)}
+                alt={`${product.productDetails.productPicture[0].image}`}
               />
             </div>
 
@@ -71,11 +74,13 @@ export const ProductDetailsPage = (props) => {
                   marginRight: "5px",
                 }}
                 icon={<IoMdCart />}
+                
                 onClick={() => {
                   const { _id, name, price } = product.productDetails;
-                  const img = product.productDetails.productPictures[0].img;
+                  const img = product.productDetails.productPicture[0].image;
+                  
                   dispatch(addToCart({ _id, name, price, img }));
-                  props.history.push(`/cart`);
+                  navigate(`/cart`);
                 }}
               />
               <MaterialButton

@@ -1,7 +1,10 @@
 .card{
-    width:100%;
     background-color: #fff;
-    border: 1 px solid #cecece;
     box-shadow: 0 0 2px 2px #cecece;
+    width: calc(100% -20px);
+    border: 1px solid #cecece;
+    box-shadow: 0 0 2px -2px grey;
+    margin: 0 10px 10px 0;
+} 
 
-}
+
