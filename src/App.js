@@ -6,7 +6,9 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { isUserLoggedIn } from './actions';
 import { ProductDetailsPage } from './containers/ProductDetailsPage';
-import {CartPage} from './containers/CartPage';
+
+import CheckoutPage from './containers/CheckoutPage';
+import { CartPage } from './containers/CartPage';
 
 function App() {
   const dispatch=useDispatch();
@@ -22,6 +24,7 @@ function App() {
          <Routes>
            <Route path="/"  element={<Home/>}/>
            <Route path="/cart"  element={<CartPage/>}/>
+           <Route path='/checkout' element={<CheckoutPage/>}/>
            <Route path="/:slug" element={<ProductListPage/>}/>
            <Route path="/:productSlug/:productId/p" element={<ProductDetailsPage/>}/>
          </Routes>

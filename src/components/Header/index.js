@@ -11,6 +11,7 @@ import {
 } from '../MaterialUI';
 import { useDispatch, useSelector } from 'react-redux';
 import { login, signOut } from '../../actions';
+import { Link } from 'react-router-dom';
 
 
 /**
@@ -203,10 +204,13 @@ const Header = (props) => {
             ]}
           />
           <div>
-            <a className="cart">
+            <span className="cart">
+              <Link to={'/cart'} style={{ textDecoration:'none',color:'white' }}>
               <IoIosCart />
-              <span style={{ margin: '0 10px' }}>Cart</span>
-            </a>
+              <span style={{ margin: '0 10px' ,textDecoration:'none' }}>Cart</span>
+              </Link>
+             
+            </span>
           </div>
         </div>
         {/* right side menu ends here */}
