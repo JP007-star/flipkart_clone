@@ -30,8 +30,8 @@ export const addToCart = (product, newQty = 1) => {
       auth,
     } = store.getState();
     //console.log('action::products', products);
-    //const product = action.payload.product;
-    //const products = state.products;
+    // const product = action.payload.product;
+    // const products = state.products;
     const qty = cartItems[product._id]
       ? parseInt(cartItems[product._id].qty + newQty)
       : 1;
