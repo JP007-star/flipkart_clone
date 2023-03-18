@@ -77,7 +77,7 @@ const Header = (props) => {
             menus={[
               { label: 'My Profile', href: '', icon: null },
               { label: 'Flipkart Plus Zone', href: '', icon: null },
-              { label: 'Orders', href: '', icon: null },
+              { label: 'Orders', href: '/account/orders', icon: null },
               { label: 'Wishlist', href: '', icon: null },
               { label: 'Rewards', href: '', icon: null },
               { label: 'Gift Cards', href: '', icon: null },

@@ -5,6 +5,7 @@ import { getOrder } from "../../actions";
 import Layout from "../../components/Layout";
 import {Card } from "../../components/UI/Card";
 import Price from "../../components/UI/Price";
+import { generatePublicURL } from "../../urlConfig";
 
 import "./style.css";
 
@@ -94,7 +95,7 @@ const OrderDetailsPage = (props) => {
           >
             <div className="flexRow">
               <div className="delItemImgContainer">
-                {/* <img src={item.productId.productPictures[0].img} alt="" /> */}
+                <img src={generatePublicURL(item.productId.productPicture[0].image)} alt="" />
               </div>
               <div style={{ width: "250px" }}>
                 <div className="delItemName">{item.productId.name}</div>

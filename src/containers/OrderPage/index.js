@@ -9,6 +9,7 @@ import { IoIosArrowForward } from "react-icons/io";
 
 import "./style.css";
 import { Breed } from "../../components/MaterialUI";
+import { generatePublicURL } from "../../urlConfig";
 
 /**
  * @author
@@ -44,10 +45,10 @@ const OrderPage = (props) => {
                 className="orderItemContainer"
               >
                 <div className="orderImgContainer">
-                  {/* <img
+                  <img 
                     className="orderImg"
-                    src={item.productId.productPictures[0].img}
-                  /> */}
+                    src={generatePublicURL(item.productId.productPicture[0].image)}
+                  />
                 </div>
                 <div className="orderRow">
                   <div className="orderName">{item.productId.name}</div>
